@@ -1,11 +1,12 @@
-
 <h1>Let's play Blackjack!</h1>
-
-<form role="form">
+<% if session[:player_name] %>
+<form role="form" action="/new_player" method="post">
   <div class="form-group">
     <label for="player_name">Your Name:</label>
     <input type="name" class="form-control" id="player_name" placeholder="Enter Name" name="player_name">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
-
+<% else %>
+  <h2>Hello <%= "#{session[:player_name]}" %>!</h2>
+<% end %>
