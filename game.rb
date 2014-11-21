@@ -18,7 +18,16 @@ module Game
     end
 
     helpers do
-      
+      def deal_two_cards_each(deck, player, dealer)
+        2.times do |card|
+         player << deck.shift
+         dealer << deck.shift
+        end
+      end
+
+      def deal_player_one_card(deck, player)
+        player << deck.shift
+      end
     end
 
     get '/' do
@@ -29,6 +38,15 @@ module Game
     end
 
     get '/play' do
+      #create deck
+      card_face = ["two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace"]
+      card_suits = ["hearts", "diamonds", "clubs", "spades"]
+      session[:deck] = card_face.product(card_suits).shuffle!
+      session[:player_cards] = []
+      session[:dealer_cards] = []
+      #deal cards
+      deal_two_cards_each(session[:deck], session[:player_cards], session[:dealer_cards])
+      #initial value check
       erb :play, :layout => :full_width, :layout_options => {:views => settings.layouts_dir}
     end
 
@@ -36,34 +54,5 @@ module Game
       session[:player_name] = params[:player_name]
       redirect '/play'
     end
-
-    # Catch-all for /something/else/etc/ pages which just display templates.
-    # get %r{/([\w\/-]+)/$} do |path|
-    #   pages = {
-    #     'help' => {
-    #       :page_name => 'help',
-    #       :title => 'Help',
-    #     },
-    #     'help/accounts' => {
-    #       :page_name => 'help_accounts',
-    #       :title => 'Accounts Help',
-    #     },
-    #     # etc
-    #   }
-    #   if pages.has_key?(path)
-    #     @page_name = pages[path][:page_name]
-    #     @page_title = pages[path][:title]
-    #     layout = :with_sidebar
-    #     if pages[path].has_key?(:layout)
-    #       layout = pages[path][:layout].to_sym
-    #     end
-    #     erb @page_name.to_sym,
-    #       :layout => layout,
-    #       :layout_options => {:views => settings.layouts_dir}
-    #   else
-    #     show_404
-    #   end
-    # end
-
   end
 end
