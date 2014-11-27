@@ -1,8 +1,7 @@
 <h1>Let's play Blackjack!</h1>
 <% if !session[:player_name] %>
-  <form role="form" action="/new_player" method="post">
+  <form role="form" class="form-inline" action="/new_player" method="post">
     <div class="form-group">
-      <label for="player_name">Your Name:</label>
       <input type="name" class="form-control" id="player_name" placeholder="Enter Name" name="player_name">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>

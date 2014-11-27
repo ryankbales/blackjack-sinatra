@@ -3,15 +3,12 @@
 <% dealers_hand = session[:dealer_cards] %>
 
 <h3>Player's Hand</h3>
-<ul>
-  <% players_hand.each do |card| %>
-    <li><%= "#{card}" %></li>
-  <% end %>
+<ul class='hand'>
+  <%= show_hand(players_hand) %>
 </ul>
 
 <h3>Dealer's Hand</h3>
 <ul class='hand'>
-  <% dealers_hand.each do |card| %>
-    <li><%= "#{card}" %></li>
-  <% end %>
+  <%= show_one_card(dealers_hand) %>
 </ul>
+      
