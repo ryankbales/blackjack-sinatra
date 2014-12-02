@@ -4,7 +4,7 @@
 <% dealer_score = session[:dealer_hand_value] %>
 <% player_name = session[:player_name] %>
 
-<div class="alert alert-success" role="alert"></div>
+<div class="alert alert-success" id="status" role="alert"><span></span></div>
 <div class="jumbotron">
   <h3 class="player_score"><%= "#{player_name}" %> has <span>
   <%= "#{player_score}" %></span></h3>

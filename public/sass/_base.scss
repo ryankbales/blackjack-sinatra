@@ -38,6 +38,10 @@ pre code {
   }
 }
 
+.alert {
+  display:none;
+}
+
 .player_hand:after, .dealer_hand:after {
   content: "";
   display: table;

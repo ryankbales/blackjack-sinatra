@@ -118,7 +118,8 @@ module Game
     end
 
     post '/play/player_stay' do
-      player_stay = {stay_message: "You have decided to stay. Dealer will now play."}
+      player_stay = {stay_message: "<span>You have decided to stay. Dealer will now play.</span>"}
+      player_stay.to_json
     end
 
     post '/play/player_hit' do
