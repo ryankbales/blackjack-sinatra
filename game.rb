@@ -1,7 +1,8 @@
 require "sinatra/base"
 require "sinatra/reloader"
+require "json"
 require "pry"
-
+CARD_VALUES = {two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, jack: 10, queen: 10, king: 10, ace: 11}
 module Game
   class Blackjack < Sinatra::Base
     use Rack::Session::Cookie, :key => 'rack.session',
@@ -64,7 +65,7 @@ module Game
       def show_hand(hand)
         show_hand = ""
         hand.each do |card|
-          show_hand << "<li id='#{card[0]}-#{card[1]}'> #{card[0]} of #{card[1]} </li>"
+          show_hand << "<li class='#{card[1]} #{card[0]}'> #{card[0]} of #{card[1]} </li>"
         end
         return show_hand
       end
@@ -72,7 +73,7 @@ module Game
       def show_one_card(hand)
         face_up = hand[0]
         face_down = hand[1]
-        "<li id='#{face_up[0]}-#{face_up[1]}'> #{face_up[0]} of #{face_up[1]} </li><li class='face-down' id='#{face_down[0]}-#{face_down[1]}''> #{face_down[0]} of #{face_down[1]} </li>"
+        "<li class='#{face_up[1]} #{face_up[0]}'> #{face_up[0]} of #{face_up[1]} </li><li id='face-down' class='#{face_down[1]} #{face_down[0]}'> #{face_down[0]} of #{face_down[1]} </li>"
       end
 
       def check_hand(hand_value, result)
@@ -86,22 +87,9 @@ module Game
         return result
       end
 
-      def hit_or_stay?
-        puts "(H)it or (S)tay?"
-        response = gets.chomp.downcase
-        if response == "h"
-          return true
-        elsif response == "s"
-          return false
-        else
-          puts "Please enter 'h' or 's'"
-          hit_or_stay?
-        end
-      end
     end
 
     get '/' do
-      @page_title = 'Blackjack!'
       erb :index,
         :layout => :full_width,
         :layout_options => {:views => settings.layouts_dir}
@@ -118,6 +106,8 @@ module Game
       deal_two_cards_each(session[:deck], session[:player_cards], session[:dealer_cards])
 
       #initial value check
+      session[:player_hand_value] = get_hand_value(session[:player_cards], CARD_VALUES)
+      session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
 
       erb :play, :layout => :full_width, :layout_options => {:views => settings.layouts_dir}
     end
@@ -126,5 +116,23 @@ module Game
       session[:player_name] = params[:player_name]
       redirect '/play'
     end
+
+    post '/play/player_stay' do
+      player_stay = {stay_message: "You have decided to stay. Dealer will now play."}
+    end
+
+    post '/play/player_hit' do
+      session[:player_cards] = deal_player_one_card(session[:deck], session[:player_cards])
+      session[:player_hand_value] = get_hand_value(session[:player_cards], CARD_VALUES)
+      new_hand = show_hand(session[:player_cards])
+      new_value = "<span>#{session[:player_hand_value]}</span>"
+      player_hit = {new_hand: new_hand, new_value: new_value }
+      player_hit.to_json
+    end
+
+    post '/play/dealer_play' do
+
+    end
+
   end
 end

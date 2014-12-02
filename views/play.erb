@@ -1,14 +1,25 @@
-<h2>Hello <%= "#{session[:player_name]}" %></h2>
 <% players_hand = session[:player_cards] %>
 <% dealers_hand = session[:dealer_cards] %>
+<% player_score = session[:player_hand_value] %>
+<% dealer_score = session[:dealer_hand_value] %>
+<% player_name = session[:player_name] %>
 
-<h3>Player's Hand</h3>
-<ul class='hand'>
-  <%= show_hand(players_hand) %>
-</ul>
+<div class="alert alert-success" role="alert"></div>
+<div class="jumbotron">
+  <h3 class="player_score"><%= "#{player_name}" %> has <span>
+  <%= "#{player_score}" %></span></h3>
+  <ul class='player_hand'>
+    <%= show_hand(players_hand) %>
+  </ul>
+  <button type="button" id="player-hit" class="btn btn-success">Hit</button>
+  <button type="button" id="player-stay" class="btn btn-info">Stay</button>
+</div>
 
-<h3>Dealer's Hand</h3>
-<ul class='hand'>
-  <%= show_one_card(dealers_hand) %>
-</ul>
+<div class="jumbotron">
+  <h3>Dealer's Hand</h3>
+  <ul class='dealer_hand'>
+    <%= show_one_card(dealers_hand) %>
+  </ul>
+</div>
+
       

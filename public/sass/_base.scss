@@ -38,3 +38,191 @@ pre code {
   }
 }
 
+.player_hand:after, .dealer_hand:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.player_hand, .dealer_hand {
+  li {
+    height:96px;
+    width:68px;
+    float:left;
+    margin:0 0 7px 7px;
+    list-style-type:none;
+    background-image:url(/images/card-deck.png);
+    background-repeat:no-repeat;
+    text-indent:-9999px;
+  }
+  .clubs {
+    &.ace {
+      background-position:0% 0%;
+    }
+    &.king {
+      background-position:10% 0%;
+    }
+    &.queen {
+      background-position:20% 0%;
+    }
+    &.jack {
+      background-position:30% 0%;
+    }
+    &.ten {
+      background-position: 40% 0%;
+    }
+    &.nine {
+      background-position: 50% 0%;
+    }
+    &.eight {
+      background-position:60% 0%;
+    }
+    &.seven {
+      background-position:70% 0%;
+    }
+    &.six {
+      background-position:80% 0%;
+    }
+    &.five {
+      background-position:90% 0%;
+    }
+    &.four {
+      background-position:100% 0%;
+    }
+    &.three {
+      background-position:0% 25%;
+    }
+    &.two {
+      background-position:10% 25%;
+    }
+
+  }
+  .spades {
+    &.ace {
+      background-position:20% 25%;
+    }
+    &.king {
+      background-position:30% 25%;
+    }
+    &.queen {
+      background-position:40% 25%;
+    }
+    &.jack {
+      background-position:50% 25%;
+    }
+    &.ten {
+      background-position: 60% 25%;
+    }
+    &.nine {
+      background-position: 70% 25%;
+    }
+    &.eight {
+      background-position:80% 25%;
+    }
+    &.seven {
+      background-position:90% 25%;
+    }
+    &.six {
+      background-position:100% 25%;
+    }
+    &.five {
+      background-position:0% 50%;
+    }
+    &.four {
+      background-position:10% 50%;
+    }
+    &.three {
+      background-position:20% 50%;
+    }
+    &.two {
+      background-position:30% 50%;
+    }
+
+  }
+  .diamonds {
+    &.ace {
+      background-position:40% 50%;
+    }
+    &.king {
+      background-position:50% 50%;
+    }
+    &.queen {
+      background-position:60% 50%;
+    }
+    &.jack {
+      background-position:70% 50%;
+    }
+    &.ten {
+      background-position:80% 50%;
+    }
+    &.nine {
+      background-position:90% 50%;
+    }
+    &.eight {
+      background-position:100% 50%;
+    }
+    &.seven {
+      background-position:0% 75%;
+    }
+    &.six {
+      background-position:10% 75%;
+    }
+    &.five {
+      background-position:20% 75%;
+    }
+    &.four {
+      background-position:30% 75%;
+    }
+    &.three {
+      background-position:40% 75%;
+    }
+    &.two {
+      background-position:50% 75%;
+    }
+
+  }
+  .hearts {
+    &.ace {
+      background-position:60% 75%;
+    }
+    &.king {
+      background-position:70% 75%;
+    }
+    &.queen {
+      background-position:80% 75%;
+    }
+    &.jack {
+      background-position:90% 75%;
+    }
+    &.ten {
+      background-position:100% 75%;
+    }
+    &.nine {
+      background-position:0% 100%;
+    }
+    &.eight {
+      background-position:10% 100%;
+    }
+    &.seven {
+      background-position:20% 100%;
+    }
+    &.six {
+      background-position:30% 100%;
+    }
+    &.five {
+      background-position:40% 100%;
+    }
+    &.four {
+      background-position:50% 100%;
+    }
+    &.three {
+      background-position:60% 100%;
+    }
+    &.two {
+      background-position:70% 100%;
+    }
+  }
+  #face-down {
+    background-position:80% 100%;
+  }
+}
+
