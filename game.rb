@@ -118,7 +118,7 @@ module Game
     end
 
     post '/play/player_stay' do
-      player_stay = {stay_message: "<span>You have decided to stay. Dealer will now play.</span>"}
+      player_stay = {stay_message: "<span>You have decided to stay with #{get_hand_value(session[:player_cards], CARD_VALUES)}. Dealer will now play.</span>"}
       player_stay.to_json
     end
 
@@ -126,7 +126,7 @@ module Game
       session[:player_cards] = deal_player_one_card(session[:deck], session[:player_cards])
       session[:player_hand_value] = get_hand_value(session[:player_cards], CARD_VALUES)
       new_hand = show_hand(session[:player_cards])
-      new_value = "<span>#{session[:player_hand_value]}</span>"
+      new_value = session[:player_hand_value]
       player_hit = {new_hand: new_hand, new_value: new_value }
       player_hit.to_json
     end
