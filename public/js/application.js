@@ -18,15 +18,17 @@ function player_hits() {
                 } else if (data.new_value == 21) {
                     $(".player_score span").text(data.new_value);
                     $(".player_hand").html(data.new_hand);
-                    $(".alert alert-success span").replaceWith("You have Blackjack, you win!").fadeIn();
+                    $(".alert.alert-success span").replaceWith("You have Blackjack, you win!").fadeIn();
                     $(".alert.alert-success").fadeIn();
-                    $("#player-hit, #player-stay").fadeOut();
+                    $("#player-hit, #player-stay").fadeOut(200);
+                    $("#play-again").fadeIn(3000);
                 } else if (data.new_value > 21) {
                     $(".player_score span").text(data.new_value);
                     $(".player_hand").html(data.new_hand);
                     $(".alert.alert-danger span").replaceWith("You have busted. You loose.").fadeIn();
                     $(".alert.alert-danger").fadeIn();
-                    $("#player-hit, #player-stay").fadeOut();
+                    $("#player-hit, #player-stay").fadeOut(200);
+                    $("#play-again").fadeIn(3000);
                 }
               }
     });
@@ -43,7 +45,7 @@ function player_stays() {
                   var data = response;
                   $(".alert.alert-success span").replaceWith(data.stay_message);
                   $(".alert.alert-success").fadeIn();
-                  $("#player-hit, #player-stay").fadeOut();
+                  $("#player-hit, #player-stay").fadeOut(200);
                 }
     });
   });
