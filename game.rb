@@ -132,7 +132,12 @@ module Game
     end
 
     post '/play/dealer_play' do
-
+      dealers_hand = show_hand(session[:dealer_cards])
+      value = session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
+      new_value = "<h3 class='dealer_score'>Dealer has <span>#{value}</span></h3>"
+      dealers_hand = {dealers_hand: dealers_hand, new_value: new_value};
+      dealers_hand.to_json
+      # dealer_plays(dealers_hand, hand_value, deck, values=CARD_VALUES)
     end
 
   end

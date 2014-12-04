@@ -1,7 +1,7 @@
 $(document).ready(function(){
   player_hits();
   player_stays();
-  // dealer_hit();
+  // dealer_turn();
 });
 
 function player_hits() {
@@ -46,7 +46,21 @@ function player_stays() {
                   $(".alert.alert-success span").replaceWith(data.stay_message);
                   $(".alert.alert-success").fadeIn();
                   $("#player-hit, #player-stay").fadeOut(200);
+                  dealer_turn();
                 }
     });
   });
+}
+
+function dealer_turn() {
+  $.ajax({
+      type: "POST",
+      dataType: "json", 
+      url: '/play/dealer_play',
+      success: function(response){
+                  var data = response;
+                  $(".dealer_score").replaceWith(data.new_value);
+                  $(".dealer_hand").html(data.dealers_hand);
+                }
+    });
 }

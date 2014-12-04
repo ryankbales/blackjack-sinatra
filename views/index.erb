@@ -8,4 +8,5 @@
   </form>
 <% else %>
   <h2>Hello <%= "#{session[:player_name]}" %>!</h2>
+  <a href="/play"><button type="button" id="home-play-button" class="btn btn-success">Play</button></a>
 <% end %>
