@@ -11,10 +11,15 @@
   <%= "#{player_score}" %></span></h3>
   <ul class='player_hand'>
     <%= show_hand(players_hand) %>
+    <% if lucky_draw(players_hand, player_score) %>
+      <div class="alert alert-success" id="lucky-draw" role="alert"><span>You drew Blackjack, You win!</span></div>
+    <% end %>
   </ul>
-  <button type="button" id="player-hit" class="btn btn-success">Hit</button>
-  <button type="button" id="player-stay" class="btn btn-info">Stay</button>
-  <a href="/play"><button type="button" id="play-again" class="btn btn-success">Play Again?</button></a>
+  <% unless lucky_draw(players_hand, player_score)  %>
+    <button type="button" id="player-hit" class="btn btn-success">Hit</button>
+    <button type="button" id="player-stay" class="btn btn-info">Stay</button>
+  <% end %>
+  <a href="/play"><button type="button" id="play-again" <%= "style='display:block';" if lucky_draw(players_hand, player_score) %>" class="btn btn-success">Play Again?</button></a>
 </div>
 
 <div class="jumbotron">

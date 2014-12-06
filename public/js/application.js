@@ -1,7 +1,6 @@
 $(document).ready(function(){
   player_hits();
   player_stays();
-  // dealer_turn();
 });
 
 function player_hits() {

@@ -87,6 +87,13 @@ module Game
         return result
       end
 
+      def lucky_draw(player_hand, player_hand_value)
+        if (player_hand.count == 2) && (player_hand_value == 21)
+          return true
+        else
+          return false
+        end
+      end
     end
 
     get '/' do
@@ -108,7 +115,6 @@ module Game
       #initial value check
       session[:player_hand_value] = get_hand_value(session[:player_cards], CARD_VALUES)
       session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
-
       erb :play, :layout => :full_width, :layout_options => {:views => settings.layouts_dir}
     end
 

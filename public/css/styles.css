@@ -6296,16 +6296,21 @@ pre code {
   display: none; }
 
 /* line 45, ../sass/_base.scss */
+#lucky-draw {
+  display: block;
+  clear: both; }
+
+/* line 50, ../sass/_base.scss */
 #play-again {
   display: none; }
 
-/* line 49, ../sass/_base.scss */
+/* line 54, ../sass/_base.scss */
 .player_hand:after, .dealer_hand:after {
   content: "";
   display: table;
   clear: both; }
 
-/* line 55, ../sass/_base.scss */
+/* line 60, ../sass/_base.scss */
 .player_hand li, .dealer_hand li {
   height: 96px;
   width: 68px;
@@ -6315,162 +6320,162 @@ pre code {
   background-image: url(/images/card-deck.png);
   background-repeat: no-repeat;
   text-indent: -9999px; }
-/* line 66, ../sass/_base.scss */
+/* line 71, ../sass/_base.scss */
 .player_hand .clubs.ace, .dealer_hand .clubs.ace {
   background-position: 0% 0%; }
-/* line 69, ../sass/_base.scss */
+/* line 74, ../sass/_base.scss */
 .player_hand .clubs.king, .dealer_hand .clubs.king {
   background-position: 10% 0%; }
-/* line 72, ../sass/_base.scss */
+/* line 77, ../sass/_base.scss */
 .player_hand .clubs.queen, .dealer_hand .clubs.queen {
   background-position: 20% 0%; }
-/* line 75, ../sass/_base.scss */
+/* line 80, ../sass/_base.scss */
 .player_hand .clubs.jack, .dealer_hand .clubs.jack {
   background-position: 30% 0%; }
-/* line 78, ../sass/_base.scss */
+/* line 83, ../sass/_base.scss */
 .player_hand .clubs.ten, .dealer_hand .clubs.ten {
   background-position: 40% 0%; }
-/* line 81, ../sass/_base.scss */
+/* line 86, ../sass/_base.scss */
 .player_hand .clubs.nine, .dealer_hand .clubs.nine {
   background-position: 50% 0%; }
-/* line 84, ../sass/_base.scss */
+/* line 89, ../sass/_base.scss */
 .player_hand .clubs.eight, .dealer_hand .clubs.eight {
   background-position: 60% 0%; }
-/* line 87, ../sass/_base.scss */
+/* line 92, ../sass/_base.scss */
 .player_hand .clubs.seven, .dealer_hand .clubs.seven {
   background-position: 70% 0%; }
-/* line 90, ../sass/_base.scss */
+/* line 95, ../sass/_base.scss */
 .player_hand .clubs.six, .dealer_hand .clubs.six {
   background-position: 80% 0%; }
-/* line 93, ../sass/_base.scss */
+/* line 98, ../sass/_base.scss */
 .player_hand .clubs.five, .dealer_hand .clubs.five {
   background-position: 90% 0%; }
-/* line 96, ../sass/_base.scss */
+/* line 101, ../sass/_base.scss */
 .player_hand .clubs.four, .dealer_hand .clubs.four {
   background-position: 100% 0%; }
-/* line 99, ../sass/_base.scss */
+/* line 104, ../sass/_base.scss */
 .player_hand .clubs.three, .dealer_hand .clubs.three {
   background-position: 0% 25%; }
-/* line 102, ../sass/_base.scss */
+/* line 107, ../sass/_base.scss */
 .player_hand .clubs.two, .dealer_hand .clubs.two {
   background-position: 10% 25%; }
-/* line 108, ../sass/_base.scss */
+/* line 113, ../sass/_base.scss */
 .player_hand .spades.ace, .dealer_hand .spades.ace {
   background-position: 20% 25%; }
-/* line 111, ../sass/_base.scss */
+/* line 116, ../sass/_base.scss */
 .player_hand .spades.king, .dealer_hand .spades.king {
   background-position: 30% 25%; }
-/* line 114, ../sass/_base.scss */
+/* line 119, ../sass/_base.scss */
 .player_hand .spades.queen, .dealer_hand .spades.queen {
   background-position: 40% 25%; }
-/* line 117, ../sass/_base.scss */
+/* line 122, ../sass/_base.scss */
 .player_hand .spades.jack, .dealer_hand .spades.jack {
   background-position: 50% 25%; }
-/* line 120, ../sass/_base.scss */
+/* line 125, ../sass/_base.scss */
 .player_hand .spades.ten, .dealer_hand .spades.ten {
   background-position: 60% 25%; }
-/* line 123, ../sass/_base.scss */
+/* line 128, ../sass/_base.scss */
 .player_hand .spades.nine, .dealer_hand .spades.nine {
   background-position: 70% 25%; }
-/* line 126, ../sass/_base.scss */
+/* line 131, ../sass/_base.scss */
 .player_hand .spades.eight, .dealer_hand .spades.eight {
   background-position: 80% 25%; }
-/* line 129, ../sass/_base.scss */
+/* line 134, ../sass/_base.scss */
 .player_hand .spades.seven, .dealer_hand .spades.seven {
   background-position: 90% 25%; }
-/* line 132, ../sass/_base.scss */
+/* line 137, ../sass/_base.scss */
 .player_hand .spades.six, .dealer_hand .spades.six {
   background-position: 100% 25%; }
-/* line 135, ../sass/_base.scss */
+/* line 140, ../sass/_base.scss */
 .player_hand .spades.five, .dealer_hand .spades.five {
   background-position: 0% 50%; }
-/* line 138, ../sass/_base.scss */
+/* line 143, ../sass/_base.scss */
 .player_hand .spades.four, .dealer_hand .spades.four {
   background-position: 10% 50%; }
-/* line 141, ../sass/_base.scss */
+/* line 146, ../sass/_base.scss */
 .player_hand .spades.three, .dealer_hand .spades.three {
   background-position: 20% 50%; }
-/* line 144, ../sass/_base.scss */
+/* line 149, ../sass/_base.scss */
 .player_hand .spades.two, .dealer_hand .spades.two {
   background-position: 30% 50%; }
-/* line 150, ../sass/_base.scss */
+/* line 155, ../sass/_base.scss */
 .player_hand .diamonds.ace, .dealer_hand .diamonds.ace {
   background-position: 40% 50%; }
-/* line 153, ../sass/_base.scss */
+/* line 158, ../sass/_base.scss */
 .player_hand .diamonds.king, .dealer_hand .diamonds.king {
   background-position: 50% 50%; }
-/* line 156, ../sass/_base.scss */
+/* line 161, ../sass/_base.scss */
 .player_hand .diamonds.queen, .dealer_hand .diamonds.queen {
   background-position: 60% 50%; }
-/* line 159, ../sass/_base.scss */
+/* line 164, ../sass/_base.scss */
 .player_hand .diamonds.jack, .dealer_hand .diamonds.jack {
   background-position: 70% 50%; }
-/* line 162, ../sass/_base.scss */
+/* line 167, ../sass/_base.scss */
 .player_hand .diamonds.ten, .dealer_hand .diamonds.ten {
   background-position: 80% 50%; }
-/* line 165, ../sass/_base.scss */
+/* line 170, ../sass/_base.scss */
 .player_hand .diamonds.nine, .dealer_hand .diamonds.nine {
   background-position: 90% 50%; }
-/* line 168, ../sass/_base.scss */
+/* line 173, ../sass/_base.scss */
 .player_hand .diamonds.eight, .dealer_hand .diamonds.eight {
   background-position: 100% 50%; }
-/* line 171, ../sass/_base.scss */
+/* line 176, ../sass/_base.scss */
 .player_hand .diamonds.seven, .dealer_hand .diamonds.seven {
   background-position: 0% 75%; }
-/* line 174, ../sass/_base.scss */
+/* line 179, ../sass/_base.scss */
 .player_hand .diamonds.six, .dealer_hand .diamonds.six {
   background-position: 10% 75%; }
-/* line 177, ../sass/_base.scss */
+/* line 182, ../sass/_base.scss */
 .player_hand .diamonds.five, .dealer_hand .diamonds.five {
   background-position: 20% 75%; }
-/* line 180, ../sass/_base.scss */
+/* line 185, ../sass/_base.scss */
 .player_hand .diamonds.four, .dealer_hand .diamonds.four {
   background-position: 30% 75%; }
-/* line 183, ../sass/_base.scss */
+/* line 188, ../sass/_base.scss */
 .player_hand .diamonds.three, .dealer_hand .diamonds.three {
   background-position: 40% 75%; }
-/* line 186, ../sass/_base.scss */
+/* line 191, ../sass/_base.scss */
 .player_hand .diamonds.two, .dealer_hand .diamonds.two {
   background-position: 50% 75%; }
-/* line 192, ../sass/_base.scss */
+/* line 197, ../sass/_base.scss */
 .player_hand .hearts.ace, .dealer_hand .hearts.ace {
   background-position: 60% 75%; }
-/* line 195, ../sass/_base.scss */
+/* line 200, ../sass/_base.scss */
 .player_hand .hearts.king, .dealer_hand .hearts.king {
   background-position: 70% 75%; }
-/* line 198, ../sass/_base.scss */
+/* line 203, ../sass/_base.scss */
 .player_hand .hearts.queen, .dealer_hand .hearts.queen {
   background-position: 80% 75%; }
-/* line 201, ../sass/_base.scss */
+/* line 206, ../sass/_base.scss */
 .player_hand .hearts.jack, .dealer_hand .hearts.jack {
   background-position: 90% 75%; }
-/* line 204, ../sass/_base.scss */
+/* line 209, ../sass/_base.scss */
 .player_hand .hearts.ten, .dealer_hand .hearts.ten {
   background-position: 100% 75%; }
-/* line 207, ../sass/_base.scss */
+/* line 212, ../sass/_base.scss */
 .player_hand .hearts.nine, .dealer_hand .hearts.nine {
   background-position: 0% 100%; }
-/* line 210, ../sass/_base.scss */
+/* line 215, ../sass/_base.scss */
 .player_hand .hearts.eight, .dealer_hand .hearts.eight {
   background-position: 10% 100%; }
-/* line 213, ../sass/_base.scss */
+/* line 218, ../sass/_base.scss */
 .player_hand .hearts.seven, .dealer_hand .hearts.seven {
   background-position: 20% 100%; }
-/* line 216, ../sass/_base.scss */
+/* line 221, ../sass/_base.scss */
 .player_hand .hearts.six, .dealer_hand .hearts.six {
   background-position: 30% 100%; }
-/* line 219, ../sass/_base.scss */
+/* line 224, ../sass/_base.scss */
 .player_hand .hearts.five, .dealer_hand .hearts.five {
   background-position: 40% 100%; }
-/* line 222, ../sass/_base.scss */
+/* line 227, ../sass/_base.scss */
 .player_hand .hearts.four, .dealer_hand .hearts.four {
   background-position: 50% 100%; }
-/* line 225, ../sass/_base.scss */
+/* line 230, ../sass/_base.scss */
 .player_hand .hearts.three, .dealer_hand .hearts.three {
   background-position: 60% 100%; }
-/* line 228, ../sass/_base.scss */
+/* line 233, ../sass/_base.scss */
 .player_hand .hearts.two, .dealer_hand .hearts.two {
   background-position: 70% 100%; }
-/* line 232, ../sass/_base.scss */
+/* line 237, ../sass/_base.scss */
 .player_hand #face-down, .dealer_hand #face-down {
   background-position: 80% 100%; }
