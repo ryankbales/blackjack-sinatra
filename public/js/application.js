@@ -58,8 +58,18 @@ function dealer_turn() {
       url: '/play/dealer_play',
       success: function(response){
                   var data = response;
-                  $(".dealer_score").replaceWith(data.new_value);
+                  $(".dealer_score span").replaceWith(data.new_value);
                   $(".dealer_hand").html(data.dealers_hand);
-                }
+                    $.ajax ({
+                      type: "POST",
+                      dataType: "json",
+                      url: "/play/dealer_play/dealer_hit",
+                      success: function(response) {
+                        var deal = response;
+                        $(".dealer_score span").replaceWith(deal.new_value);
+                        $(".dealer_hand").html(deal.hand);
+                      }
+                    });
+               }
     });
 }

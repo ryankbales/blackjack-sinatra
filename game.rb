@@ -139,11 +139,18 @@ module Game
 
     post '/play/dealer_play' do
       dealers_hand = show_hand(session[:dealer_cards])
-      value = session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
-      new_value = "<h3 class='dealer_score'>Dealer has <span>#{value}</span></h3>"
+      new_value = session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
       dealers_hand = {dealers_hand: dealers_hand, new_value: new_value};
       dealers_hand.to_json
-      # dealer_plays(dealers_hand, hand_value, deck, values=CARD_VALUES)
+    end
+
+    post '/play/dealer_play/dealer_hit' do
+      deck = session[:deck]
+      new_hand = deal_player_one_card(deck, session[:dealer_cards])
+      dealers_hand = show_hand(session[:dealer_cards])
+      new_value = session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
+      dealers_new_hand = {hand: dealers_hand, new_value: new_value}
+      dealers_new_hand.to_json
     end
 
   end
