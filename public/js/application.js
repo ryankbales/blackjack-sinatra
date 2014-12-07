@@ -52,24 +52,63 @@ function player_stays() {
 }
 
 function dealer_turn() {
+  var init_hand = {};
+  var hit = {};
   $.ajax({
+      async: false,
       type: "POST",
       dataType: "json", 
       url: '/play/dealer_play',
       success: function(response){
                   var data = response;
-                  $(".dealer_score span").replaceWith(data.new_value);
-                  $(".dealer_hand").html(data.dealers_hand);
-                    $.ajax ({
-                      type: "POST",
-                      dataType: "json",
-                      url: "/play/dealer_play/dealer_hit",
-                      success: function(response) {
-                        var deal = response;
-                        $(".dealer_score span").replaceWith(deal.new_value);
-                        $(".dealer_hand").html(deal.hand);
-                      }
-                    });
+                  alert("In dealer_turn!");
+                  $(".dealer_score span").html(data.new_value);
+                  $(".dealer_hand").html(data.hand);
+                  init_hand = data;
                }
-    });
+  });
+  if (init_hand.new_value < 17) {
+      $.ajax ({
+          async: false,
+          type: "POST",
+          dataType: "json",
+          url: "/play/dealer_play/dealer_hit",
+          error: function(response) {
+            alert(response);
+          },
+          success: function(response) {
+            var data = response;
+            alert("In second request!");
+            hit = {
+              hit_value: data.hit_value,
+              new_hand: data.hand
+            };
+            $(".dealer_score span").html(hit.hit_value);
+            $(".dealer_hand").html(hit.new_hand);
+          }
+      });
+    }
+    var hit_return = hit.hit_value;
+    while (hit_return < 17) {
+      $.ajax ({
+          async: false,
+          type: "POST",
+          dataType: "json",
+          url: "/play/dealer_play/dealer_hit",
+          error: function(response) {
+            alert(response);
+          },
+          success: function(response) {
+            var data = response;
+            alert("In ")
+            hit = {
+              hit_value: data.hit_value,
+              new_hand: data.hand
+            };
+          }
+      });
+      hit_return = hit.hit_value;
+      $(".dealer_score span").html(hit_return);
+      $(".dealer_hand").html(hit.new_hand);
+  }
 }
