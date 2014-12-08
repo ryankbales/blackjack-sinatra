@@ -76,15 +76,16 @@ module Game
         "<li class='#{face_up[1]} #{face_up[0]}'> #{face_up[0]} of #{face_up[1]} </li><li id='face-down' class='#{face_down[1]} #{face_down[0]}'> #{face_down[0]} of #{face_down[1]} </li>"
       end
 
-      def check_hand(hand_value, result)
-        if blackjack?(hand_value)
-          result = 'blackjack'
-        elsif bust?(hand_value)
-          result = 'bust'
+      def check_hands(player_value, player_name, dealer_value)
+        if player_value > dealer_value
+          message = "#{player_name} has #{player_value} and Dealer has #{dealer_value}, You Win!"
+        elsif player_value < dealer_value
+          message = "#{player_name} has #{player_value} and Dealer has #{dealer_value}, You Lose."
         else
-          result = false
+          message = "#{player_name} has #{player_value} and Dealer has #{dealer_value}, It's a push!"
         end
-        return result
+        result_message = {message: message}
+        result_message.to_json
       end
 
       def lucky_draw(player_hand, player_hand_value)
@@ -148,9 +149,13 @@ module Game
 
     post '/play/dealer_play' do
       hand = show_hand(session[:dealer_cards])
-      new_value = session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
-      dealers_hand = {hand: hand, new_value: new_value};
+      value = session[:dealer_hand_value] = get_hand_value(session[:dealer_cards], CARD_VALUES)
+      dealers_hand = {hand: hand, value: value};
       dealers_hand.to_json
+    end
+
+    post '/play/final_check' do
+      check_hands(session[:player_hand_value], session[:player_name], session[:dealer_hand_value])
     end
 
   end
