@@ -79,12 +79,15 @@ module Game
       def check_hands(player_value, player_name, dealer_value)
         if player_value > dealer_value
           message = "#{player_name} has #{player_value} and Dealer has #{dealer_value}, You Win!"
+          result = "win"
         elsif player_value < dealer_value
           message = "#{player_name} has #{player_value} and Dealer has #{dealer_value}, You Lose."
+          result = "lose"
         else
           message = "#{player_name} has #{player_value} and Dealer has #{dealer_value}, It's a push!"
+          result = "push"
         end
-        result_message = {message: message}
+        result_message = {message: message, result: result}
         result_message.to_json
       end
 
@@ -121,12 +124,27 @@ module Game
 
     post '/new_player' do
       session[:player_name] = params[:player_name]
+      session[:bank] = params[:bank]
       redirect '/play'
     end
 
     post '/play/player_stay' do
       player_stay = {stay_message: "<span>You have decided to stay with #{get_hand_value(session[:player_cards], CARD_VALUES)}. Dealer will now play.</span>"}
       player_stay.to_json
+    end
+
+    post '/play/player_bet' do
+      bet = request.body.read
+      bet = JSON.parse bet
+      # session[:bet] = bet[:bet]["bet"]
+      bet = {bet: bet}
+      bet.to_json
+    end
+
+    post '/play/update_bank' do
+      data = request.body.read
+      data = JSON.parse data
+      session[:bank] = data["new_value"]
     end
 
     post '/play/player_hit' do

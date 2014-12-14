@@ -1,9 +1,18 @@
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<%= url('/js/bootstrap.min.js') %>"></script>
     <script src="<%= url('/js/application.js') %>"></script>
-
+    </script>
+    <% unless request.fullpath == '/' %>
+      <% unless session[:player_hand_value] >= 21 || session[:player_hand_value] == nil %>
+        <script>
+          $(document).ready(function(){
+             player_bet();
+           });
+        </script>
+      <% end %>
+    <% end %>
+    <script>player_hits();</script>
   </body>
 </html>

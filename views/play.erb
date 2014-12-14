@@ -3,6 +3,7 @@
 <% player_score = session[:player_hand_value] %>
 <% dealer_score = session[:dealer_hand_value] %>
 <% player_name = session[:player_name] %>
+<% bank_value = session[:bank] %>
 
 <div class="alert alert-success" id="status" role="alert"><span></span></div>
 <div class="alert alert-danger" id="status" role="alert"><span></span></div>
@@ -15,6 +16,8 @@
       <div class="alert alert-success" id="lucky-draw" role="alert"><span>You drew Blackjack, You win!</span></div>
     <% end %>
   </ul>
+  <h5>Cash: <span class="glyphicon glyphicon-usd" aria-hidden="true"></span><span id="bank-amount"><%= bank_value %></span></h5>
+  <h5 id="current-bet">Current Bet: <span class="glyphicon glyphicon-usd" aria-hidden="true"></span><span id="bet-amount"></span></h5>
   <% unless lucky_draw(players_hand, player_score)  %>
     <button type="button" id="player-hit" class="btn btn-success">Hit</button>
     <button type="button" id="player-stay" class="btn btn-info">Stay</button>
