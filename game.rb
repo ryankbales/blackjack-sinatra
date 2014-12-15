@@ -43,6 +43,9 @@ module Game
         player_card_values.each do |value|
           hand_value += value
         end
+        if (hand_value > 21) && (player_card_values.include?(11))
+          hand_value = hand_value - 10
+        end
         return hand_value
       end
 
