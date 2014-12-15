@@ -1,0 +1,25 @@
+1.  HTML, CSS and Javascript are what is called front end programming laguages that make all the data that a website displays easy and functional to interact with.
+
+2.  The major parts of an HTTP request are the header and the body.
+
+3.  The major parts of an HTTP response are the response satus, header and body with the data if any.
+
+4.  To set an HTTP POST request to set the username, you can create a form with an action directing it to a method that assigns it to a database or a cookie.  The attribute will be set to a variable set by the name attribute of the input in the HTML.
+
+5.  It is important to understand that HTTP is a stateless protocol so that we can use methods to appear to the user that there is always a state.
+
+6.  We can use HTTP tools, curl in the command line, but to really interface with the web application in it's full glory we must use a web browser.
+
+7.  MVC is an acronym for model, view and controller.  It is important to be familiar with since it is the basis of many modern web app frameworks like Ruby on Rails.
+
+Sinatra:
+
+1. Requests in sinatra are processed by routes created in the main application file.  Both post and get requests can be processed and than rendered into a template or redirected to another route.
+
+2.  Rendering processes the current data into a view template where a redirect sends another request with data to another route.
+
+3.  To show dynamic content in a Sinatra view, we can use erb tags, <%=  %>, which allows ruby to be used to process data based on the current state.
+
+4.  ERB templates are turned into HTML on the server side and sent to the client browser as a web page.
+
+5.  Instace variables in Sinatra allow for the reuse of an attribute across methods or helpers, or even the view.
