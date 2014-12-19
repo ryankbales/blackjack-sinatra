@@ -55,25 +55,35 @@ function player_stays() {
 
 function player_bet() {
   var bet_amount = 0;
-  var bet = prompt("Enter an amount to bet", 0);
-  if (bet && typeof parseInt(bet) == "number") {
-    bet = parseInt(bet);
-  } else {
-    var bet = prompt("Please enter a number to bet.", 0);
-  }
-  $.ajax({
-    async: false,
-    url: '/play/player_bet',
-    dataType: 'json',
-    contentType: 'application/json',
-    type: 'POST',
-    data: JSON.stringify({bet: bet}),
-    success: function(json) {
-      data = json;
-      bet_amount = data.bet.bet;
-      $("#current-bet span#bet-amount").text(bet_amount);
+  var bank = $("span#bank-amount").text();
+  bank = parseInt(bank);
+  if (bank > 49) {
+    var bet = prompt("Enter an amount to bet. Minimum of $50.", 0);
+    if ((bet && typeof parseInt(bet) == "number") && (parseInt(bet) > 49) && (parseInt(bet) <= bank)) {
+      bet = parseInt(bet);
+    } else if ((bet && typeof parseInt(bet) == "number") && (parseInt(bet) > 49) && (parseInt(bet) > bank)) {
+      bet = prompt("You bet more than you have in the bank. Please enter a value less than $" + bank + ".", 0);
+    } else {
+      var bet = prompt("Either you didn't enter a number or you didn't bet at least $50.", 0);
     }
-  });
+    $.ajax({
+      // async: false,
+      url: '/play/player_bet',
+      dataType: 'json',
+      contentType: 'application/json',
+      type: 'POST',
+      data: JSON.stringify({bet: bet}),
+      success: function(json) {
+        data = json;
+        bet_amount = data.bet.bet;
+        $("#current-bet span#bet-amount").text(bet_amount);
+      }
+    });
+  } else if (bank < 50) {
+    alert("You don't have enough to meet the minimum bet.");
+    $("#player-hit, #player-stay").fadeOut(200);
+    $("#play-again").fadeIn(3000);
+  }
   return bet_amount;
 }
 
