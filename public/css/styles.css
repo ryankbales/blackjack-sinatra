@@ -6479,3 +6479,7 @@ pre code {
 /* line 237, ../sass/_base.scss */
 .player_hand #face-down, .dealer_hand #face-down {
   background-position: 80% 100%; }
+
+/* line 242, ../sass/_base.scss */
+.player_score span, .player_hand, .dealer_hand {
+  display: none; }

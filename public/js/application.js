@@ -58,16 +58,16 @@ function player_bet() {
   var bank = $("span#bank-amount").text();
   bank = parseInt(bank);
   if (bank > 49) {
-    var bet = prompt("Enter an amount to bet. Minimum of $50.", 0);
+    var bet = prompt("Enter an amount to bet. Minimum of $50.");
     if ((bet && typeof parseInt(bet) == "number") && (parseInt(bet) > 49) && (parseInt(bet) <= bank)) {
       bet = parseInt(bet);
     } else if ((bet && typeof parseInt(bet) == "number") && (parseInt(bet) > 49) && (parseInt(bet) > bank)) {
-      bet = prompt("You bet more than you have in the bank. Please enter a value less than $" + bank + ".", 0);
+      bet = prompt("You bet more than you have in the bank. Please enter a value less than $" + bank + ".");
     } else {
-      var bet = prompt("Either you didn't enter a number or you didn't bet at least $50.", 0);
+      var bet = prompt("Either you didn't enter a number or you didn't bet at least $50.");
     }
     $.ajax({
-      // async: false,
+      async: false,
       url: '/play/player_bet',
       dataType: 'json',
       contentType: 'application/json',
@@ -77,6 +77,7 @@ function player_bet() {
         data = json;
         bet_amount = data.bet.bet;
         $("#current-bet span#bet-amount").text(bet_amount);
+        $(".player_score span, .player_hand, .dealer_hand").fadeIn();
       }
     });
   } else if (bank < 50) {
