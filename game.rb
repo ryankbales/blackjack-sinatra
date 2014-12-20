@@ -139,7 +139,6 @@ module Game
     post '/play/player_bet' do
       bet = request.body.read
       bet = JSON.parse bet
-      # session[:bet] = bet[:bet]["bet"]
       bet = {bet: bet}
       bet.to_json
     end
@@ -148,6 +147,7 @@ module Game
       data = request.body.read
       data = JSON.parse data
       session[:bank] = data["new_value"]
+      halt 200
     end
 
     post '/play/player_hit' do

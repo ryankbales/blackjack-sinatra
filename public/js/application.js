@@ -105,6 +105,7 @@ function calc_bet(result) {
     return;
   }
   $.ajax({
+    async: false,
     url: '/play/update_bank',
     dataType: 'json',
     contentType: 'application/json',
